@@ -77,6 +77,9 @@
           <span class="close" @click="sdfg()">&times;</span>
           <div id="one">
             <h2 style="margin-left: 100px; font-size: 2em;">오늘</h2>
+            <div
+              style="margin-left: 100px; font-size: 1em; font-weight: bold;"
+            >{{tod[0]}} {{tod[1]}} {{tod[2]}} {{tod[3]}} {{tod[4]}} {{tod[5 ]}}</div>
             <br />
             <div style="display: flex; width: 100%; justify-content: space-around;">
               <img src="smile.png" alt class="imger" @click="todsel(1)" />
@@ -86,6 +89,9 @@
           </div>
           <div id="two">
             <h2 style="margin-left: 100px; font-size: 2em;">내일</h2>
+            <div
+              style="margin-left: 100px; font-size: 1em; font-weight: bold;"
+            >{{tom[0]}} {{tom[1]}} {{tom[2]}} {{tom[3]}} {{tom[4]}} {{tom[5 ]}}</div>
             <br />
             <div style="display: flex; width: 100%; justify-content: space-around;">
               <img src="smile.png" alt class="imger" @click="todsel(4)" />
@@ -95,6 +101,9 @@
           </div>
           <div id="three">
             <h2 style="margin-left: 100px; font-size: 2em;">모레</h2>
+            <div
+              style="margin-left: 100px; font-size: 1em; font-weight: bold;"
+            >{{tomm[0]}} {{tomm[1]}} {{tomm[2]}} {{tomm[3]}} {{tomm[4]}} {{tomm[5]}}</div>
             <br />
             <div style="display: flex; width: 100%; justify-content: space-around;">
               <img src="smile.png" alt class="imger" @click="todsel(7)" />
@@ -108,7 +117,7 @@
             <span
               class="btn"
               @click="sdfg()"
-              style="margin-top: 20px;border: 1px solid gray; padding: 10px 10px; border-radius: 20px;"
+              style="position: absolute; left: 45%; top: 80%; border: 1px solid gray; padding: 10px 10px; border-radius: 20px; display: none; transition-duration: 444ms;"
             >급식 투표하기</span>
           </div>
         </div>
@@ -280,38 +289,48 @@ export default {
       if (el == 1) {
         x.todgood += 1;
         document.getElementById("one").style.display = "none";
+        document.getElementsByClassName("btn")[0].style.display = "block";
+        document.getElementsByClassName("btn")[0].style.top = "block";
       }
       if (el == 2) {
         x.todsoso += 1;
         document.getElementById("one").style.display = "none";
+        document.getElementsByClassName("btn")[0].style.display = "block";
       }
       if (el == 3) {
         x.todangry += 1;
         document.getElementById("one").style.display = "none";
+        document.getElementsByClassName("btn")[0].style.display = "block";
       }
       if (el == 4) {
         x.tomgood += 1;
         document.getElementById("two").style.display = "none";
+        document.getElementsByClassName("btn")[0].style.display = "block";
       }
       if (el == 5) {
         x.tomsoso += 1;
         document.getElementById("two").style.display = "none";
+        document.getElementsByClassName("btn")[0].style.display = "block";
       }
       if (el == 6) {
         x.tomangry += 1;
         document.getElementById("two").style.display = "none";
+        document.getElementsByClassName("btn")[0].style.display = "block";
       }
       if (el == 7) {
         x.tommgood += 1;
         document.getElementById("three").style.display = "none";
+        document.getElementsByClassName("btn")[0].style.display = "block";
       }
       if (el == 8) {
         x.tommsoso += 1;
         document.getElementById("three").style.display = "none";
+        document.getElementsByClassName("btn")[0].style.display = "block";
       }
       if (el == 9) {
         x.tommangry += 1;
         document.getElementById("three").style.display = "none";
+        document.getElementsByClassName("btn")[0].style.display = "block";
       }
     }
   },
@@ -348,6 +367,7 @@ export default {
       });
     var x = new Date();
     this.date = x.toLocaleDateString();
+    first();
   }
 };
 </script>
@@ -363,14 +383,14 @@ nav {
   justify-content: space-between;
 }
 .left {
-  width: 85vw;
+  width: 90vw;
   height: 100vh;
   background: white;
   box-sizing: content-box;
   justify-content: center;
 }
 .right {
-  width: 15vw;
+  width: 10vw;
   height: 100%;
   background: #111;
 }
@@ -549,7 +569,9 @@ button:hover {
 }
 #chart_div {
   position: relative;
-  top: 15vw;
+  top: 19vw;
+  right: 100px;
   height: 300px;
+  transition-duration: 333ms;
 }
 </style>
